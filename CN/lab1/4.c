@@ -8,7 +8,7 @@ struct stud {
 }s[10];
 int main()
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         printf("\nEnter details for student %d: \n", i + 1);
         printf("Name: ");
@@ -17,7 +17,6 @@ int main()
         scanf("%s", s[i].id);
         printf("Phone Number: ");
         scanf("%s", s[i].ph);
-
     }
 
     while (1) {
@@ -26,8 +25,9 @@ int main()
         scanf("%d", &inp);
         if (inp == 0)
             return 0;
-        printf("Name: %s\n", s[inp - 1].names);
-        printf("ID: %s\n", s[inp - 1].id);
+        inp--;
+        printf("Name: %s\n", s[inp].names);
+        printf("ID: %s\n", s[inp].id);
         printf("Phone Number: %s\n", s[inp].ph);
     }
 }

@@ -11,15 +11,15 @@ int main()
     printf("Enter operator: ");
     scanf("%c", &op);
     switch (op) {
-    case '+': printf("%lf + %lf = %lf", a, b, a + b);
+    case '+': printf("%.2lf + %.2lf = %.2lf\n", a, b, a + b);
         break;
-    case '-': printf("%lf - %lf = %lf", a, b, a - b);
+    case '-': printf("%.2lf - %.2lf = %.2lf\n", a, b, a - b);
         break;
-    case '*': printf("%lf * %lf = %lf", a, b, a * b);
+    case '*': printf("%.2lf * %.2lf = %.2lf\n", a, b, a * b);
         break;
     case '/': if (b != 0)
-        printf("%lf / %lf = %lf", a, b, a / b);
-            else printf("%lf + %lf = Undefined", a, b);
+        printf("%.2lf / %.2lf = %.2lf\n", a, b, a / b);
+            else printf("%.2lf + %.2lf = Undefined\n", a, b);
         break;
 
     default:

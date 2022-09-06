@@ -142,7 +142,7 @@ int main()
             start = clock();
             insertionSort(arr, n);
             end = clock();
-            printf("Time taken to sort ascending of random data: %f\n", (double)(end - start) / CLOCKS_PER_SEC);
+            printf("Time taken to sort descending of random data: %f\n", (double)(end - start) / CLOCKS_PER_SEC);
             break;
         case 8:
             printTable();

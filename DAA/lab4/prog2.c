@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 typedef unsigned long long ll;
 ll steps;
 
@@ -16,7 +17,7 @@ void insertionSort(int* arr, int n)
         while (j >= 0 && arr[j] > key)
         {
             arr[j + 1] = arr[j];
-            j = j - 1; 
+            j = j - 1;
         }
         arr[j + 1] = key;
     }
@@ -39,12 +40,12 @@ int binarySearch(int* arr, int n, int x)
         }
         else if (arr[mid] < x)
         {
-            steps++;
+            steps += 2;
             low = mid + 1;
         }
         else
         {
-            steps++;
+            steps += 3;
             high = mid - 1;
         }
     }
@@ -52,15 +53,35 @@ int binarySearch(int* arr, int n, int x)
     return -1;
 }
 
-// reverse array
-void reverseArray(int* arr, int n)
-{
-    int i, j;
-    for (i = 0, j = n - 1; i < j; i++, j--)
-    {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+void printTable() {
+    printf("Sl no.\tN\tAverage\tBest\tWorst\n");
+    int* arr;
+    int i;
+    ll n;
+    for (i = 1, n = 2 << i; i <= 15; i++, n = 2 << i) {
+        arr = (int*)malloc(n * sizeof(int));
+        for (int i = 0; i < n; i++) {
+            arr[i] = rand() % 100;
+        }
+        insertionSort(arr, n);
+
+        int x = arr[rand() % n];
+
+        int pos = binarySearch(arr, n, x);
+        ll avg = steps;
+        steps = 0;
+
+        x = arr[(n - 1) / 2];
+        pos = binarySearch(arr, n, x);
+        ll best = steps;
+        steps = 0;
+
+        x = -1;
+        pos = binarySearch(arr, n, x);
+        ll worst = steps;
+        steps = 0;
+
+        printf("%d\t%llu\t%llu\t%llu\t%llu\n", i, n, avg, best, worst);
     }
 }
 
@@ -68,33 +89,7 @@ int main()
 {
     int n;
     srand((unsigned)clock());
-    printf("Enter n: ");
-    scanf("%d", &n);
-
-    int arr[n];
-    for(int i = 0; i < n; i++) {
-        arr[i] = rand() % 100;
-    }
-
-    insertionSort(arr, n);
-
-    int x = arr[rand() % n];
-
-    int pos = binarySearch(arr, n, x);
-    ll avg = steps;
-    steps = 0;
-
-    x = arr[(n-1)/2];
-    pos = binarySearch(arr, n, x);
-    ll best = steps;
-    steps = 0;
-    
-    x = -1;
-    pos = binarySearch(arr, n, x);
-    ll worst = steps;
-    steps = 0;
-
-    printf("\nBest Case: %llu steps\nWorst Case: %llu steps\nAverage Case: %llu steps\n", best, worst, avg);
+    printTable();
 
     return 0;
 }

@@ -9,19 +9,37 @@
 
 #define PORT 8080
 
-struct obj {
-    int a, b;
-    char op;
-};
-
 int main()
 {
     int sockfd, n, len;
-    struct obj num;
+    int num[3];
     printf("Enter two numbers: ");
-    scanf("%d %d", &num.a, &num.b);
+    scanf("%d %d", &num[0], &num[1]);
     printf("Enter the operator: ");
-    scanf(" %c", &num.op);
+    char op;
+    scanf("\n%c", &op);
+    switch (op)
+    {
+    case '+':
+        num[2] = 1;
+        break;
+    case '-':
+        num[2] = 2;
+        break;
+    case '*':
+        num[2] = 3;
+        break;
+    case '/':
+        num[2] = 4;
+        break;
+    case '%':
+        num[2] = 5;
+        break;
+
+    default:
+        num[2] = 0;
+        break;
+    }
     
     struct sockaddr_in servaddr;
 
@@ -37,12 +55,12 @@ int main()
     servaddr.sin_port = htons(PORT);
     servaddr.sin_addr.s_addr = INADDR_ANY;
 
-    sendto(sockfd, (const struct obj *)&num, sizeof(num), 0, (struct sockaddr *)&servaddr, sizeof(servaddr));
+    sendto(sockfd, (const int *)&num, sizeof(num), 0, (struct sockaddr *)&servaddr, sizeof(servaddr));
     printf("Object sent\n");
 
     int result;
     recvfrom(sockfd, (int *)&result, sizeof(int), 0, (struct sockaddr *)&servaddr, &len);
-    if(result = -111111)
+    if(result == -111111)
         printf("Invalid operation\n");
     else
         printf("Result: %d\n", result);

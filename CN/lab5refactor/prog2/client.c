@@ -1,5 +1,4 @@
 #include "../refactor.h"
-
 int main()
 {
     printf("Enter two numbers: ");

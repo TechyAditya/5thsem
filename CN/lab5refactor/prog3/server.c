@@ -17,7 +17,7 @@ int main()
 
     len = sizeof(cliaddr);
 
-    recvfrom(sockfd, (struct obj*)&obj, sizeof(obj), 0, (struct sockaddr*)&cliaddr, &len);
+    recvfrom(sockfd, (struct pass*)&obj, sizeof(obj), 0, (struct sockaddr*)&cliaddr, &len);
     int result;
     switch (obj.op) {
     case '+':

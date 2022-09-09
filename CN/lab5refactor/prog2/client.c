@@ -35,7 +35,7 @@ int main()
     }
 
     setaddr();
-
+    
     sendto(sockfd, (const int*)&arr, sizeof(arr), 0, (struct sockaddr*)&servaddr, sizeof(servaddr));
     printf("Object sent\n");
 

@@ -1,6 +1,5 @@
-// 1. Write a program by using an user defined function for computing  √n for any positive integer n. Besides assignment and comparison, your algorithm may only use the four basic arithmetical operations.
+// 1. Write a program by using an user defined function for computing √n for any positive integer n. Besides assignment and comparison, your algorithm may only use the four basic arithmetical operations.
 #include <stdio.h>
-#include <stdlib.h>
 typedef unsigned long long ll;
 int main()
 {

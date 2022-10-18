@@ -73,24 +73,7 @@ void classic()
     printf("\nSteps:%llu\n", steps);
 }
 
-void printTable() {
-    printf("Sl no.\tN\tRandom\tSorted\tReverse\n");
-    int* arr;
-    int i;
-    int n;
-    int r, asc, desc;
-    for (i = 1; i <= 10; i++) {
-        n = i * 1000;
-        arr = (int*)malloc(n * sizeof(int));
-        for (int j = 0; j < n; j++)
-            arr[j] = rand() % 1000;
-        heapSort(arr, n);
-        r = steps;
-        heapSort(arr, n);
-        asc = steps;
-        printf("%d\t%d\t%d\n", i, n, steps);
-    }
-}
+    
 int main() {
     int choice;
     srand(time(0));

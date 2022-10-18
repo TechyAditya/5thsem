@@ -33,7 +33,7 @@ void removeFirstHalf()
 
 int main()
 {
-    printf("Enter the number of elements in the set: ");
+    printf("Enter the number of elements to insert into set: ");
     int num;
     scanf("%d", &num);
     printf("Enter the elements of the set: ");

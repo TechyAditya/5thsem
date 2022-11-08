@@ -35,7 +35,6 @@ void heapify(int* arr, int n, int i)
         heapify(arr, n, largest);
     }
 }
-
 // heap sort
 void heapSort(int* arr, int n)
 {
@@ -52,6 +51,20 @@ void heapSort(int* arr, int n)
         arr[i] = temp;
 
         heapify(arr, i, 0);
+    }
+}
+void printTable() {
+    printf("Sl no.\tN\tSteps\n");
+    int* arr;
+    int i;
+    int n;
+    for (i = 1; i <= 10; i++) {
+        n = i * 1000;
+        arr = (int*)malloc(n * sizeof(int));
+        for (int j = 0; j < n; j++)
+            arr[j] = rand() % 1000;
+        heapSort(arr, n);
+        printf("%d\t%d\t%d\n", i, n, steps);
     }
 }
 
@@ -73,7 +86,6 @@ void classic()
     printf("\nSteps:%llu\n", steps);
 }
 
-    
 int main() {
     int choice;
     srand(time(0));

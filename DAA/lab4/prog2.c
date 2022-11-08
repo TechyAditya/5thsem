@@ -87,7 +87,6 @@ void printTable() {
 
 int main()
 {
-    int n;
     srand((unsigned)clock());
     printTable();
 

@@ -25,7 +25,7 @@ int main()
     int capacity;
     printf("Enter capacity:");
     scanf("%d", &capacity);
-    
+
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
@@ -55,6 +55,9 @@ int main()
                 total += arr[i].fraction * arr[i].value;
                 capacity = 0;
             }
+        }
+        else {
+            arr[i].fraction = 0;
         }
     }
     // print as table

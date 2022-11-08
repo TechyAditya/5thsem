@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int sets[1000000];
+int *sets;
 int n = 0;
 
 // insert into sorted array
@@ -18,8 +18,17 @@ void insert(int x)
         sets[i + 1] = sets[i];
         i--;
     }
-    sets[i + 1] = x;
-    n++;
+    if(!n || sets[i] != x) {
+        sets = (int *)realloc(sets, (n + 1) * sizeof(int));
+        sets[i + 1] = x;
+        n++;
+    }
+    else {
+        while(i < n - 1) {
+            i++;
+            sets[i] = sets[i + 1];
+        }
+    }
 }
 
 // remove first n/2 elements
@@ -29,6 +38,7 @@ void removeFirstHalf()
     for (int i = 0; i < half; i++)
         sets[i] = sets[i + n / 2];
     n = half;
+    sets = (int *)realloc(sets, n * sizeof(int));
 }
 
 int main()

@@ -6,7 +6,7 @@ WAP to find the frequency of numbers in an array
 
 WAP to implement Bubble Sort. Take 3 different set of input. For each of the case count the number of comparission to reach final array.
 
-[**Lab 2**](Daa/lab2)
+[**Lab 2**](DAA/lab2)
 
 Rearrange n elements into odd and even
 

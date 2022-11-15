@@ -176,7 +176,7 @@ int main()
             char arr[n];
             int freq[n];
             printf("Enter Unique Characters:\n");
-            for (int i = 0; i < n; i++) 
+            for (int i = 0; i < n; i++)
             {
                 printf("Enter Character - %d: \n", i + 1);
                 scanf("\n%c", &arr[i]);

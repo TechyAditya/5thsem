@@ -19,6 +19,7 @@ int main()
     {
         printf("Enter weight and value of item %d:", i + 1);
         scanf("%d %d", &arr[i].weight, &arr[i].value);
+        // calculating profits here
         arr[i].profit = (float)arr[i].value / (float)arr[i].weight;
         arr[i].index = i + 1;
     }

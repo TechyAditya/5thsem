@@ -1,4 +1,58 @@
 # 5th Sem Labs
+# CN Notes
+## UDP
+Server
+1. Create socket and save it's file descriptor - 
+socket(AF_INET, SOCK_DGRAM, 0)
+2. Error check socket
+3. memset addresses to 0
+4. Set IP and port of server address
+5. Bind socket to server address -  
+bind(sockfd, &servaddr, size)
+6. Error check bind
+
+Connection complete
+
+Receive data: recvfrom(sockfd, data, size, 0, &cliaddr, sizeof(cliaddr))
+
+Send data: sendto(sockfd, data, size, 0, &cliaddr, sizeof(cliaddr))
+
+Client
+1. Create socket and error control
+2. memset server and set IP and port to it
+
+Connection complete
+
+## TCP
+Server
+1. Create TCP socket - 
+socket(AF_INET, SOCK_STREAM, 0)
+2. Error control socket
+3. memset and set IP and port to servaddr
+4. Bind the socket - 
+bind(sockfd, &servaddr, size)
+5. Error control bind
+6. Error control listen test
+7. Accept client connection and set it to file descriptor - 
+accept(sockfd, &cliaddr, len)
+8. Error check incoming connections
+
+Connection complete
+
+Receive data: recv(sockfd, data, size, 0)
+
+Send data: send(connfd, data, size, 0) 
+
+Client
+1. Create socket and error check
+2. memset and set IP and port to INADDR_ANY and any number
+3. connect to server using socket - 
+connect(sockfd, &servaddr, size)
+
+Connection complete
+
+
+
 # DAA
 [**Lab 1**](DAA/lab1)
 

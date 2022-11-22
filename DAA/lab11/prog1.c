@@ -20,11 +20,12 @@ int LongestSubSeq(int arr[], int n)
                 dp[i] = max(dp[i], dp[j] + 1);
         }
     }
-    int result = 1, lb, ub;
+    int result = 1, lb, ub, flag = 1;
     // print longest subsequence from dp
     for (int i = 0; i < n; i++)
-        if (result < dp[i])
-            result = dp[i];
+        if (result < dp[i]) {
+            result = dp[i]; 
+        }
 
     return result;
 }
@@ -35,7 +36,7 @@ int main()
     int arr2[] = { 6, 7, 8, 3, 4, 5, 9, 10 };
     int n1 = sizeof(arr1) / sizeof(int);
     int n2 = sizeof(arr2) / sizeof(int);
-    printf("Length of the increasing subsequence: %d\n", LongestSubSeq(arr1, n1));
-    printf("Length of the increasing subsequence: %d\n", LongestSubSeq(arr2, n2));
+    printf("\nLength of the increasing subsequence: %d\n", LongestSubSeq(arr1, n1));
+    printf("\nLength of the increasing subsequence: %d\n", LongestSubSeq(arr2, n2));
     return 0;
 }
